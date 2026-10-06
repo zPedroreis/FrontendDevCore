@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SISGED - Movimentação</title>
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260917b">
+
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="app">
+
+    <!-- MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logos" aria-label="SESI e SENAI">
+                <img src="assets/img/logo-sesi.png" class="brand-logo brand-logo-sesi" alt="SESI">
+                <img src="assets/img/logo-senai.png" class="brand-logo brand-logo-senai" alt="SENAI">
+            </div>
+
+            <div class="brand-copy">
+                <small>Gestão Acadêmica</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <!-- INÍCIO -->
+            <a href="dashboard.html">
+                <span class="nav-ico">▦</span>
+                <span>Início</span>
+            </a>
+
+            <div class="nav-label">ADMINISTRAÇÃO</div>
+
+            <a href="administradores.html">
+                <span class="nav-ico">♙</span>
+                <span>Cadastro de Usuários</span>
+            </a>
+
+            <div class="nav-label">GESTÃO</div>
+
+            <!-- CADASTROS -->
+            <a href="cadastros.html">
+                <span class="nav-ico">▣</span>
+                <span>Cadastros</span>
+            </a>
+
+            <!-- MOVIMENTAÇÃO -->
+            <a href="movimentacoes.html" class="active">
+                <span class="nav-ico">↔</span>
+                <span>Movimentação</span>
+            </a>
+
+            <div class="nav-label">CONSULTAS</div>
+
+            <!-- HORÁRIOS -->
+            <a href="horarios.html">
+                <span class="nav-ico">□</span>
+                <span>Consulta de Horários</span>
+            </a>
+
+            <!-- INSTRUTORES -->
+            <a href="instrutores.html">
+                <span class="nav-ico">♙</span>
+                <span>Consulta de Instrutores</span>
+            </a>
+
+            <!-- SALAS -->
+            <a href="salas.html">
+                <span class="nav-ico">▥</span>
+                <span>Consulta de Salas</span>
+            </a>
+
+            <div class="nav-label">RELATÓRIOS</div>
+
+            <!-- RELATÓRIOS -->
+            <a href="relatorios.html">
+                <span class="nav-ico">▥</span>
+                <span>Relatórios</span>
+            </a>
+
+        </nav>
+
+        <!-- BOTÃO SAIR -->
+        <a href="index.html" class="logout">
+            <span class="nav-ico">↪</span>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+    <main class="main">
+
+        <!-- BARRA SUPERIOR (TOPBAR) -->
+        <header class="topbar">
+
+            <div class="crumb">
+                <span class="light">SGA</span>
+                <span class="light">›</span>
+                Sistema Web de Gestão Acadêmica
+            </div>
+
+            <div class="top-actions">
+
+                <input
+                    class="search-top"
+                    placeholder="⌕  Pesquisar..."
+                    aria-label="Pesquisar"
+                >
+
+                <div class="user-chip">
+
+                    <span class="avatar">
+                        AD
+                    </span>
+
+                    <div>
+                        Administrador
+
+                        <div class="role">
+                            Gestor do Sistema
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CABEÇALHO DA PÁGINA -->
+        <section class="page-head">
+
+            <div>
+                <h1>Movimentação</h1>
+                <p>Substituições, trocas de sala, cancelamentos e reagendamentos</p>
+            </div>
+
+            <button
+                class="btn primary"
+                onclick="openModal('movModal')"
+            >
+                ＋ Nova movimentação
+            </button>
+
+        </section>
+
+        <!-- CARDS DE RESUMO DE MOVIMENTAÇÕES -->
+        <div class="summary-strip">
+
+            <div>
+                <b>3</b>
+                <span>Pendentes</span>
+            </div>
+
+            <div>
+                <b>12</b>
+                <span>Aprovadas</span>
+            </div>
+
+            <div>
+                <b>2</b>
+                <span>Aguardando</span>
+            </div>
+
+        </div>
+
+        <!-- PAINEL DE TABELA E ABAS DE FILTRO -->
+        <div class="panel">
+
+            <div class="tabs">
+                <button class="selected">Todas</button>
+                <button>Pendentes</button>
+                <button>Aprovadas</button>
+            </div>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>TIPO</th>
+                            <th>DATA</th>
+                            <th>TURMA</th>
+                            <th>DE</th>
+                            <th>PARA</th>
+                            <th>MOTIVO</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>#001</td>
+                            <td>Substituição</td>
+                            <td>05/10/2026</td>
+                            <td><b>DEV-2026-1</b></td>
+                            <td>Carlos Silva</td>
+                            <td>Ana Oliveira</td>
+                            <td>Licença médica do instrutor titular</td>
+                            <td><span class="status aprovado">APROVADO</span></td>
+                            <td>
+                                <button
+                                    class="icon"
+                                    type="button"
+                                    onclick="viewMovStatic('#001', 'Substituição', '05/10/2026', 'DEV-2026-1', 'Carlos Silva', 'Ana Oliveira', 'Licença médica do instrutor titular', 'APROVADO')"
+                                    title="Visualizar"
+                                >
+                                    ⌕
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>#002</td>
+                            <td>Troca de sala</td>
+                            <td>06/10/2026</td>
+                            <td><b>AUT-2026-2</b></td>
+                            <td>Sala 102</td>
+                            <td>Lab 01</td>
+                            <td>Manutenção emergencial no ar-condicionado</td>
+                            <td><span class="status aguardando">AGUARDANDO</span></td>
+                            <td>
+                                <button
+                                    class="icon"
+                                    type="button"
+                                    onclick="viewMovStatic('#002', 'Troca de sala', '06/10/2026', 'AUT-2026-2', 'Sala 102', 'Lab 01', 'Manutenção emergencial no ar-condicionado', 'AGUARDANDO')"
+                                    title="Visualizar"
+                                >
+                                    ⌕
+                                </button>
+
+                                <button
+                                    class="icon"
+                                    type="button"
+                                    onclick="alert('Movimentação #002 aprovada com sucesso!')"
+                                    title="Aprovar"
+                                >
+                                    ✓
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>#003</td>
+                            <td>Reagendamento</td>
+                            <td>08/10/2026</td>
+                            <td><b>DEV-2026-1</b></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Ajuste referente ao feriado municipal</td>
+                            <td><span class="status pendente">PENDENTE</span></td>
+                            <td>
+                                <button
+                                    class="icon"
+                                    type="button"
+                                    onclick="viewMovStatic('#003', 'Reagendamento', '08/10/2026', 'DEV-2026-1', '-', '-', 'Ajuste referente ao feriado municipal', 'PENDENTE')"
+                                    title="Visualizar"
+                                >
+                                    ⌕
+                                </button>
+
+                                <button
+                                    class="icon"
+                                    type="button"
+                                    onclick="alert('Movimentação #003 aprovada com sucesso!')"
+                                    title="Aprovar"
+                                >
+                                    ✓
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- MODAL — NOVA MOVIMENTAÇÃO -->
+        <div class="modal" id="movModal">
+
+            <div class="modal-box">
+
+                <button
+                    class="modal-close"
+                    type="button"
+                    onclick="closeModal('movModal')"
+                >
+                    ×
+                </button>
+
+                <h2>Nova Movimentação</h2>
+
+                <form onsubmit="event.preventDefault(); alert('Movimentação criada com sucesso!'); closeModal('movModal');">
+
+                    <div class="form-grid">
+
+                        <label>
+                            Tipo
+                            <select name="tipo" required>
+                                <option value="SUBSTITUICAO">SUBSTITUIÇÃO</option>
+                                <option value="TROCA_HORARIO">TROCA DE HORÁRIO</option>
+                                <option value="CANCELAMENTO">CANCELAMENTO</option>
+                                <option value="REAGENDAMENTO">REAGENDAMENTO</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Data
+                            <input
+                                type="date"
+                                name="data"
+                                value="2026-10-05"
+                                required
+                            >
+                        </label>
+
+                        <label>
+                            Turma
+                            <select name="turma_id" required>
+                                <option value="1">DEV-2026-1</option>
+                                <option value="2">AUT-2026-2</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Status
+                            <select name="status" required>
+                                <option value="PENDENTE">PENDENTE</option>
+                                <option value="AGUARDANDO">AGUARDANDO</option>
+                            </select>
+                        </label>
+
+                    </div>
+
+                    <label>
+                        Motivo
+                        <textarea
+                            name="motivo"
+                            required
+                            placeholder="Informe o motivo da movimentação"
+                        ></textarea>
+                    </label>
+
+                    <button
+                        class="btn primary full"
+                        type="submit"
+                    >
+                        Criar movimentação
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- MODAL — DETALHES -->
+        <div class="modal" id="viewMov">
+
+            <div class="modal-box">
+
+                <button
+                    class="modal-close"
+                    type="button"
+                    onclick="closeModal('viewMov')"
+                >
+                    ×
+                </button>
+
+                <h2>Detalhes da movimentação</h2>
+
+                <div id="movDetails"></div>
+
+            </div>
+
+        </div>
+
+        <!-- RODAPÉ (FOOTER + VLIBRAS) -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+            // Controlo de Modais
+            function openModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) modal.classList.add('active');
+            }
+
+            function closeModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) modal.classList.remove('active');
+            }
+
+            // Exibir Detalhes Estáticos no Modal
+            function viewMovStatic(id, tipo, data, turma, de, para, motivo, status) {
+                const container = document.getElementById('movDetails');
+                if (container) {
+                    container.innerHTML = `
+                        <p><b>ID:</b> ${id}</p>
+                        <p><b>Tipo:</b> ${tipo}</p>
+                        <p><b>Data:</b> ${data}</p>
+                        <p><b>Turma:</b> ${turma}</p>
+                        <p><b>De:</b> ${de}</p>
+                        <p><b>Para:</b> ${para}</p>
+                        <p><b>Motivo:</b> ${motivo}</p>
+                        <p><b>Status:</b> ${status}</p>
+                    `;
+                }
+                openModal('viewMov');
+            }
+        </script>
+
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SISGED - Painel Geral</title>
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260917b">
+
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="app">
+
+    <!-- MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logos" aria-label="SESI e SENAI">
+                <img src="assets/img/logo-sesi.png" class="brand-logo brand-logo-sesi" alt="SESI">
+                <img src="assets/img/logo-senai.png" class="brand-logo brand-logo-senai" alt="SENAI">
+            </div>
+
+            <div class="brand-copy">
+                <small>Gestão Acadêmica</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <!-- INÍCIO -->
+            <a href="dashboard.html" class="active">
+                <span class="nav-ico">▦</span>
+                <span>Início</span>
+            </a>
+
+            <div class="nav-label">ADMINISTRAÇÃO</div>
+
+            <a href="administradores.html">
+                <span class="nav-ico">♙</span>
+                <span>Cadastro de Usuários</span>
+            </a>
+
+            <div class="nav-label">GESTÃO</div>
+
+            <!-- CADASTROS -->
+            <a href="cadastros.html">
+                <span class="nav-ico">▣</span>
+                <span>Cadastros</span>
+            </a>
+
+            <!-- MOVIMENTAÇÃO -->
+            <a href="movimentacoes.html">
+                <span class="nav-ico">↔</span>
+                <span>Movimentação</span>
+            </a>
+
+            <div class="nav-label">CONSULTAS</div>
+
+            <!-- HORÁRIOS -->
+            <a href="horarios.html">
+                <span class="nav-ico">□</span>
+                <span>Consulta de Horários</span>
+            </a>
+
+            <!-- INSTRUTORES -->
+            <a href="instrutores.html">
+                <span class="nav-ico">♙</span>
+                <span>Consulta de Instrutores</span>
+            </a>
+
+            <!-- SALAS -->
+            <a href="salas.html">
+                <span class="nav-ico">▥</span>
+                <span>Consulta de Salas</span>
+            </a>
+
+            <div class="nav-label">RELATÓRIOS</div>
+
+            <!-- RELATÓRIOS -->
+            <a href="relatorios.html">
+                <span class="nav-ico">▥</span>
+                <span>Relatórios</span>
+            </a>
+
+        </nav>
+
+        <!-- BOTÃO SAIR -->
+        <a href="index.html" class="logout">
+            <span class="nav-ico">↪</span>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+    <main class="main">
+
+        <!-- BARRA SUPERIOR (TOPBAR) -->
+        <header class="topbar">
+
+            <div class="crumb">
+                <span class="light">SGA</span>
+                <span class="light">›</span>
+                Sistema Web de Gestão Acadêmica
+            </div>
+
+            <div class="top-actions">
+
+                <input
+                    class="search-top"
+                    placeholder="⌕  Pesquisar..."
+                    aria-label="Pesquisar"
+                >
+
+                <div class="user-chip">
+
+                    <span class="avatar">
+                        AD
+                    </span>
+
+                    <div>
+                        Administrador
+
+                        <div class="role">
+                            Gestor do Sistema
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CABEÇALHO DA PÁGINA -->
+        <section class="page-head">
+            <div>
+                <h1>Painel Geral</h1>
+                <p>Segunda-feira, 05 de Outubro de 2026</p>
+            </div>
+            <a class="btn light" href="relatorios.html">▥ &nbsp; Relatórios</a>
+        </section>
+
+        <!-- ESTATÍSTICAS -->
+        <div class="stats">
+            <div class="stat"><span>AULAS HOJE</span><strong>8</strong><small>Programadas para hoje</small></div>
+            <div class="stat"><span>INSTRUTORES ATIVOS</span><strong>14</strong><small>Instrutores disponíveis</small></div>
+            <div class="stat"><span>SALAS DISPONÍVEIS</span><strong>6</strong><small>Salas livres no momento</small></div>
+            <div class="stat"><span>TURMAS EM ANDAMENTO</span><strong>12</strong><small>Turmas com status ativo</small></div>
+        </div>
+
+        <div class="grid-2">
+            <!-- AULAS DE HOJE -->
+            <section class="panel">
+                <div class="panel-head"><h2>Aulas de Hoje</h2><a href="horarios.html">Ver todas →</a></div>
+                <div class="agenda">
+                    <div class="agenda-row">
+                        <div class="time">07:30</div>
+                        <div><b>Banco de Dados I</b><p>Presencial · Sala 102</p></div>
+                        <span class="tag">DEV-2026-1</span>
+                    </div>
+                    <div class="agenda-row">
+                        <div class="time">09:15</div>
+                        <div><b>Programação Web</b><p>Laboratório · Lab 03</p></div>
+                        <span class="tag">DEV-2026-1</span>
+                    </div>
+                    <div class="agenda-row">
+                        <div class="time">13:30</div>
+                        <div><b>Automação Industrial</b><p>Laboratório · Lab 01</p></div>
+                        <span class="tag">AUT-2026-2</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ACESSO RÁPIDO -->
+            <section class="panel">
+                <div class="panel-head"><h2>Acesso Rápido</h2></div>
+                <div class="quick">
+                    <a href="horarios.html">◷<b>Horários</b><small>Consultar aulas</small></a>
+                    <a href="instrutores.html">♙<b>Instrutores</b><small>Ver equipe</small></a>
+                    <a href="salas.html">▤<b>Salas</b><small>Disponibilidade</small></a>
+                    <a href="relatorios.html">▥<b>Relatórios</b><small>Indicadores</small></a>
+                    <a href="administradores.html">♙<b>Usuários</b><small>Cadastrar aluno ou instrutor</small></a>
+                </div>
+            </section>
+        </div>
+
+        <!-- CALENDÁRIO ACADÊMICO -->
+        <section class="panel calendar-panel">
+            <div class="panel-head calendar-heading">
+                <div>
+                    <h2>Calendário acadêmico</h2>
+                    <p class="muted">Aulas, reservas de laboratórios, eventos e movimentações com data.</p>
+                </div>
+                <div class="calendar-nav">
+                    <a class="btn light" href="#" onclick="alert('Navegação de mês simulada'); return false;" aria-label="Mês anterior">‹</a>
+                    <strong>Outubro de 2026</strong>
+                    <a class="btn light" href="#" onclick="alert('Navegação de mês simulada'); return false;" aria-label="Próximo mês">›</a>
+                </div>
+            </div>
+
+            <div class="calendar-grid">
+                <!-- DIA DA SEMANA -->
+                <div class="calendar-weekday">Dom</div>
+                <div class="calendar-weekday">Seg</div>
+                <div class="calendar-weekday">Ter</div>
+                <div class="calendar-weekday">Qua</div>
+                <div class="calendar-weekday">Qui</div>
+                <div class="calendar-weekday">Sex</div>
+                <div class="calendar-weekday">Sáb</div>
+
+                <!-- DIAS VAZIOS INICIAIS (Outubro 2026 começa na Quinta-feira) -->
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+
+                <!-- DIAS DO MÊS -->
+                <div class="calendar-day"><div class="calendar-date">1</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">2</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">3</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">4</div><div class="calendar-events"></div></div>
+
+                <!-- HOJE (Dia 5) -->
+                <div class="calendar-day today">
+                    <div class="calendar-date">5</div>
+                    <div class="calendar-events">
+                        <a class="calendar-event class" href="horarios.html" title="07:30–11:30 · Sala 102 · DEV-2026-1">
+                            <b>Banco de Dados I</b>
+                            <small>07:30–11:30 · Sala 102 · DEV-2026-1</small>
+                        </a>
+                        <a class="calendar-event room" href="horarios.html" title="13:30–17:30 · AUT-2026-2">
+                            <b>Lab 01 reservado</b>
+                            <small>13:30–17:30 · AUT-2026-2</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="calendar-day"><div class="calendar-date">6</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">7</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">8</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">9</div><div class="calendar-events"></div></div>
+
+                <div class="calendar-day">
+                    <div class="calendar-date">10</div>
+                    <div class="calendar-events">
+                        <div class="calendar-event academic" title="Evento Acadêmico · Feira de Tecnologia SENAI">
+                            <b>Feira de Tecnologia</b>
+                            <small>Evento Acadêmico · Auditório</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calendar-day"><div class="calendar-date">11</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">12</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">13</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">14</div><div class="calendar-events"></div></div>
+                
+                <div class="calendar-day">
+                    <div class="calendar-date">15</div>
+                    <div class="calendar-events">
+                        <a class="calendar-event movement" href="movimentacoes.html" title="EMPRÉSTIMO · Projetor HDMI">
+                            <b>Movimentação: EMPRÉSTIMO</b>
+                            <small>Pendente · Projetor HDMI</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="calendar-day"><div class="calendar-date">16</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">17</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">18</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">19</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">20</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">21</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">22</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">23</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">24</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">25</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">26</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">27</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">28</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">29</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">30</div><div class="calendar-events"></div></div>
+                <div class="calendar-day"><div class="calendar-date">31</div><div class="calendar-events"></div></div>
+            </div>
+
+            <div class="calendar-legend">
+                <span><i class="legend-dot class"></i>Aula</span>
+                <span><i class="legend-dot room"></i>Laboratório reservado</span>
+                <span><i class="legend-dot academic"></i>Evento acadêmico</span>
+                <span><i class="legend-dot movement"></i>Movimentação</span>
+            </div>
+        </section>
+
+        <!-- RODAPÉ (FOOTER + VLIBRAS) -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+
+    </main>
+</div>
+</body>
+</html>

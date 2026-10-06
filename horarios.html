@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SISGED - Consulta de Horários</title>
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260917b">
+
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="app">
+
+    <!-- MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logos" aria-label="SESI e SENAI">
+                <img src="assets/img/logo-sesi.png" class="brand-logo brand-logo-sesi" alt="SESI">
+                <img src="assets/img/logo-senai.png" class="brand-logo brand-logo-senai" alt="SENAI">
+            </div>
+
+            <div class="brand-copy">
+                <small>Gestão Acadêmica</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <!-- INÍCIO -->
+            <a href="dashboard.html">
+                <span class="nav-ico">▦</span>
+                <span>Início</span>
+            </a>
+
+            <div class="nav-label">ADMINISTRAÇÃO</div>
+
+            <a href="administradores.html">
+                <span class="nav-ico">♙</span>
+                <span>Cadastro de Usuários</span>
+            </a>
+
+            <div class="nav-label">GESTÃO</div>
+
+            <!-- CADASTROS -->
+            <a href="cadastros.html">
+                <span class="nav-ico">▣</span>
+                <span>Cadastros</span>
+            </a>
+
+            <!-- MOVIMENTAÇÃO -->
+            <a href="movimentacoes.html">
+                <span class="nav-ico">↔</span>
+                <span>Movimentação</span>
+            </a>
+
+            <div class="nav-label">CONSULTAS</div>
+
+            <!-- HORÁRIOS -->
+            <a href="horarios.html" class="active">
+                <span class="nav-ico">□</span>
+                <span>Consulta de Horários</span>
+            </a>
+
+            <!-- INSTRUTORES -->
+            <a href="instrutores.html">
+                <span class="nav-ico">♙</span>
+                <span>Consulta de Instrutores</span>
+            </a>
+
+            <!-- SALAS -->
+            <a href="salas.html">
+                <span class="nav-ico">▥</span>
+                <span>Consulta de Salas</span>
+            </a>
+
+            <div class="nav-label">RELATÓRIOS</div>
+
+            <!-- RELATÓRIOS -->
+            <a href="relatorios.html">
+                <span class="nav-ico">▥</span>
+                <span>Relatórios</span>
+            </a>
+
+        </nav>
+
+        <!-- BOTÃO SAIR -->
+        <a href="index.html" class="logout">
+            <span class="nav-ico">↪</span>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+    <main class="main">
+
+        <!-- BARRA SUPERIOR (TOPBAR) -->
+        <header class="topbar">
+
+            <div class="crumb">
+                <span class="light">SGA</span>
+                <span class="light">›</span>
+                Sistema Web de Gestão Acadêmica
+            </div>
+
+            <div class="top-actions">
+
+                <input
+                    class="search-top"
+                    placeholder="⌕  Pesquisar..."
+                    aria-label="Pesquisar"
+                >
+
+                <div class="user-chip">
+
+                    <span class="avatar">
+                        AD
+                    </span>
+
+                    <div>
+                        Administrador
+
+                        <div class="role">
+                            Gestor do Sistema
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CABEÇALHO DA PÁGINA -->
+        <section class="page-head">
+
+            <div>
+                <h1>Consulta de Horários</h1>
+                <p>Filtre, edite e gerencie os horários das aulas</p>
+            </div>
+
+            <div>
+                <button
+                    class="btn light"
+                    onclick="window.print()"
+                >
+                    ♧ Imprimir
+                </button>
+
+                <button
+                    class="btn light"
+                    onclick="alert('Exportando tabela para CSV...')"
+                >
+                    ⇩ Exportar
+                </button>
+            </div>
+
+        </section>
+
+        <!-- PAINEL DE FILTROS -->
+        <div class="panel">
+
+            <h3>Filtros de Pesquisa</h3>
+
+            <form class="filters" onsubmit="event.preventDefault();">
+
+                <label>
+                    DATA INICIAL
+                    <input type="date" name="ini" value="2026-10-01">
+                </label>
+
+                <label>
+                    DATA FINAL
+                    <input type="date" name="fim" value="2026-10-31">
+                </label>
+
+                <label>
+                    PERÍODO
+                    <select name="periodo">
+                        <option value="">Todos os períodos</option>
+                        <option value="MANHA">Manhã</option>
+                        <option value="TARDE">Tarde</option>
+                        <option value="NOITE">Noite</option>
+                    </select>
+                </label>
+
+                <label>
+                    INSTRUTOR
+                    <select name="instrutor">
+                        <option value="">Todos os instrutores</option>
+                        <option value="1">Carlos Silva</option>
+                        <option value="2">Ana Oliveira</option>
+                        <option value="3">Roberto Santos</option>
+                    </select>
+                </label>
+
+                <label>
+                    TURMA
+                    <select name="turma">
+                        <option value="">Todas</option>
+                        <option value="1">DEV-2026-1</option>
+                        <option value="2">AUT-2026-2</option>
+                    </select>
+                </label>
+
+                <button class="btn primary" type="submit">
+                    Pesquisar
+                </button>
+
+                <a class="btn light" href="horarios.html">
+                    Limpar
+                </a>
+
+            </form>
+
+        </div>
+
+        <!-- PAINEL DE RESULTADOS DA TABELA -->
+        <div class="panel">
+
+            <div class="panel-head">
+                <h2>3 resultados encontrados</h2>
+            </div>
+
+            <div class="table-wrap">
+
+                <table id="horariosTable">
+
+                    <thead>
+                        <tr>
+                            <th>AULA</th>
+                            <th>DATA</th>
+                            <th>DIA</th>
+                            <th>INSTRUTOR</th>
+                            <th>MATÉRIA</th>
+                            <th>SALA</th>
+                            <th>TURMA</th>
+                            <th>TIPO</th>
+                            <th>PERÍODO</th>
+                            <th>HORÁRIO</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>#101</td>
+                            <td>05/10/2026</td>
+                            <td>Segunda-feira</td>
+                            <td>Carlos Silva</td>
+                            <td>Banco de Dados I</td>
+                            <td>Sala 102</td>
+                            <td><b>DEV-2026-1</b></td>
+                            <td>Teórica</td>
+                            <td>Manhã</td>
+                            <td>07:30 – 11:30</td>
+                            <td>
+                                <button
+                                    class="icon"
+                                    type="button"
+                                    onclick="openModal('aulaModal')"
+                                    title="Editar aula"
+                                >
+                                    ✎
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>#102</td>
+                            <td>05/10/2026</td>
+                            <td>Segunda-feira</td>
+                            <td>Ana Oliveira</td>
+                            <td>Programação Web</td>
+                            <td>Lab 03</td>
+                            <td><b>DEV-2026-1</b></td>
+                            <td>Prática</td>
+                            <td>Manhã</td>
+                            <td>09:15 – 11:30</td>
+                            <td>
+                                <button
+                                    class="icon"
+                                    type="button"
+                                    onclick="openModal('aulaModal')"
+                                    title="Editar aula"
+                                >
+                                    ✎
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>#103</td>
+                            <td>06/10/2026</td>
+                            <td>Terça-feira</td>
+                            <td>Roberto Santos</td>
+                            <td>Automação Industrial</td>
+                            <td>Lab 01</td>
+                            <td><b>AUT-2026-2</b></td>
+                            <td>Prática</td>
+                            <td>Tarde</td>
+                            <td>13:30 – 17:30</td>
+                            <td>
+                                <button
+                                    class="icon"
+                                    type="button"
+                                    onclick="openModal('aulaModal')"
+                                    title="Editar aula"
+                                >
+                                    ✎
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- MODAL DE EDIÇÃO DA AULA -->
+        <div class="modal" id="aulaModal">
+            <div class="modal-box">
+                <button class="modal-close" type="button" onclick="closeModal('aulaModal')" aria-label="Fechar">×</button>
+
+                <h2 id="aulaModalTitle">Editar aula</h2>
+                <p class="muted">Altere os dados da aula selecionada.</p>
+
+                <form onsubmit="event.preventDefault(); alert('Aula atualizada com sucesso!'); closeModal('aulaModal');">
+                    <input type="hidden" name="id" id="aula_id" value="101">
+
+                    <div class="form-grid">
+                        <label>
+                            DATA
+                            <input type="date" name="data_aula" id="aula_data" value="2026-10-05" required>
+                        </label>
+
+                        <label>
+                            PERÍODO
+                            <select name="periodo" id="aula_periodo" required>
+                                <option value="MANHA" selected>Manhã</option>
+                                <option value="TARDE">Tarde</option>
+                                <option value="NOITE">Noite</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            TURMA
+                            <select name="turma_id" id="aula_turma" required>
+                                <option value="1" selected>DEV-2026-1</option>
+                                <option value="2">AUT-2026-2</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            INSTRUTOR
+                            <select name="instrutor_id" id="aula_instrutor" required>
+                                <option value="1" selected>Carlos Silva</option>
+                                <option value="2">Ana Oliveira</option>
+                                <option value="3">Roberto Santos</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            DISCIPLINA
+                            <select name="disciplina_id" id="aula_disciplina" required>
+                                <option value="1" selected>BD-01 - Banco de Dados I</option>
+                                <option value="2">WEB-01 - Programação Web</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            SALA
+                            <select name="sala_id" id="aula_sala" required>
+                                <option value="1" selected>Sala 102</option>
+                                <option value="2">Lab 01</option>
+                                <option value="3">Lab 03</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            INÍCIO
+                            <input type="time" name="inicio" id="aula_inicio" value="07:30" required>
+                        </label>
+
+                        <label>
+                            FIM
+                            <input type="time" name="fim" id="aula_fim" value="11:30" required>
+                        </label>
+
+                        <label>
+                            TIPO
+                            <select name="tipo" id="aula_tipo" required>
+                                <option value="TEORICA" selected>Teórica</option>
+                                <option value="PRATICA">Prática</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            STATUS
+                            <input type="text" name="status" id="aula_status" maxlength="30" value="PLANEJADA" placeholder="PLANEJADA">
+                        </label>
+                    </div>
+
+                    <label>
+                        CONTEÚDO
+                        <textarea name="conteudo" id="aula_conteudo">Introdução à modelagem relacional de banco de dados.</textarea>
+                    </label>
+
+                    <label>
+                        OBSERVAÇÕES
+                        <textarea name="observacoes" id="aula_observacoes">Trazer notebook com o MySQL Workbench instalado.</textarea>
+                    </label>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn light" onclick="closeModal('aulaModal')">Cancelar</button>
+                        <button type="submit" class="btn primary">Salvar alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- RODAPÉ (FOOTER + VLIBRAS) -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+            // Funções auxiliares para controlo de modais
+            function openModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) modal.classList.add('active');
+            }
+            function closeModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) modal.classList.remove('active');
+            }
+        </script>
+
+    </main>
+</div>
+</body>
+</html>

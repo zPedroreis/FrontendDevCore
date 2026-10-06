@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SISGED - Cadastro de Usuários</title>
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260917b">
+
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="app">
+
+    <!-- MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logos" aria-label="SESI e SENAI">
+                <img src="assets/img/logo-sesi.png" class="brand-logo brand-logo-sesi" alt="SESI">
+                <img src="assets/img/logo-senai.png" class="brand-logo brand-logo-senai" alt="SENAI">
+            </div>
+
+            <div class="brand-copy">
+                <small>Gestão Acadêmica</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <!-- INÍCIO -->
+            <a href="dashboard.html">
+                <span class="nav-ico">▦</span>
+                <span>Início</span>
+            </a>
+
+            <div class="nav-label">ADMINISTRAÇÃO</div>
+
+            <a href="administradores.html" class="active">
+                <span class="nav-ico">♙</span>
+                <span>Cadastro de Usuários</span>
+            </a>
+
+            <div class="nav-label">GESTÃO</div>
+
+            <!-- CADASTROS -->
+            <a href="cadastros.html">
+                <span class="nav-ico">▣</span>
+                <span>Cadastros</span>
+            </a>
+
+            <!-- MOVIMENTAÇÃO -->
+            <a href="movimentacoes.html">
+                <span class="nav-ico">↔</span>
+                <span>Movimentação</span>
+            </a>
+
+            <div class="nav-label">CONSULTAS</div>
+
+            <!-- HORÁRIOS -->
+            <a href="horarios.html">
+                <span class="nav-ico">□</span>
+                <span>Consulta de Horários</span>
+            </a>
+
+            <!-- INSTRUTORES -->
+            <a href="instrutores.html">
+                <span class="nav-ico">♙</span>
+                <span>Consulta de Instrutores</span>
+            </a>
+
+            <!-- SALAS -->
+            <a href="salas.html">
+                <span class="nav-ico">▥</span>
+                <span>Consulta de Salas</span>
+            </a>
+
+            <div class="nav-label">RELATÓRIOS</div>
+
+            <!-- RELATÓRIOS -->
+            <a href="relatorios.html">
+                <span class="nav-ico">▥</span>
+                <span>Relatórios</span>
+            </a>
+
+        </nav>
+
+        <!-- BOTÃO SAIR -->
+        <a href="index.html" class="logout">
+            <span class="nav-ico">↪</span>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+    <main class="main">
+
+        <!-- BARRA SUPERIOR (TOPBAR) -->
+        <header class="topbar">
+
+            <div class="crumb">
+                <span class="light">SGA</span>
+                <span class="light">›</span>
+                Sistema Web de Gestão Acadêmica
+            </div>
+
+            <div class="top-actions">
+
+                <input
+                    class="search-top"
+                    placeholder="⌕  Pesquisar..."
+                    aria-label="Pesquisar"
+                >
+
+                <div class="user-chip">
+
+                    <span class="avatar">
+                        AD
+                    </span>
+
+                    <div>
+                        Administrador
+
+                        <div class="role">
+                            Gestor do Sistema
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CONTEÚDO DA PÁGINA -->
+        <section class="page-head">
+            <div>
+                <h1>Cadastro de Usuários</h1>
+                <p>Área exclusiva do administrador para adicionar instrutores e alunos.</p>
+            </div>
+        </section>
+
+        <section class="panel admin-panel">
+            <div class="panel-head">
+                <div>
+                    <h2>Novo acesso ao sistema</h2>
+                    <p class="muted" style="margin:5px 0 0">Todos os novos usuários recebem inicialmente a senha padrão e deverão trocá-la no primeiro acesso.</p>
+                </div>
+                <span class="status green">Administrador</span>
+            </div>
+
+            <div class="tabs admin-tabs">
+                <a href="#" class="selected">♙ &nbsp; Instrutor</a>
+                <a href="#">♙ &nbsp; Aluno</a>
+            </div>
+
+            <div class="admin-form-wrap">
+                <form class="form-grid admin-form" autocomplete="off" onsubmit="event.preventDefault(); alert('Cadastro simulado com sucesso!');">
+                    <input type="hidden" name="tipo" value="INSTRUTOR">
+
+                    <label>CPF
+                        <input name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+                    </label>
+
+                    <label>Nome completo
+                        <input name="nome" maxlength="150" required>
+                    </label>
+
+                    <label>E-mail
+                        <input type="email" name="email" maxlength="180" placeholder="nome@senai.local" required>
+                    </label>
+
+                    <label>Área de atuação
+                        <input name="area" maxlength="120" placeholder="Ex.: Tecnologia da Informação" required>
+                    </label>
+
+                    <div class="admin-password-note">
+                        <b>Senha inicial</b>
+                        <span>SesiSenai@2026</span>
+                        <small>Será armazenada somente como hash. No primeiro acesso, o usuário deverá criar uma nova senha.</small>
+                    </div>
+
+                    <div class="admin-form-action">
+                        <button class="btn primary" type="submit">Cadastrar instrutor</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-head">
+                <h2>Usuários cadastrados</h2>
+                <span class="muted">2 usuários</span>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NOME</th>
+                            <th>CPF</th>
+                            <th>PERFIL</th>
+                            <th>E-MAIL</th>
+                            <th>INFORMAÇÃO</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Carlos Eduardo Silva</td>
+                            <td>123.456.789-00</td>
+                            <td>INSTRUTOR</td>
+                            <td>carlos.silva@senai.br</td>
+                            <td>Tecnologia da Informação</td>
+                            <td><span class="status green">ATIVO</span></td>
+                            <td>
+                                <button class="btn small danger-outline" type="button">Desativar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ana Maria Souza</td>
+                            <td>987.654.321-11</td>
+                            <td>ALUNO</td>
+                            <td>ana.souza@aluno.senai.br</td>
+                            <td>Matrícula: ALU-2026-0001</td>
+                            <td><span class="status green">ATIVO</span></td>
+                            <td>
+                                <button class="btn small danger-outline" type="button">Desativar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- RODAPÉ (FOOTER + VLIBRAS) -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+
+    </main>
+</div>
+
+<style>
+.admin-panel{margin-bottom:16px}
+.admin-tabs{padding:0 32px 20px}
+.admin-form-wrap{padding:0 32px 28px}
+.admin-form{align-items:end}
+.admin-form-action{grid-column:1/-1;display:flex;justify-content:flex-end;margin-top:4px}
+.admin-password-note{background:#f3f6fb;border:1px solid #e0e6f0;border-radius:9px;padding:12px 14px;display:flex;flex-direction:column;gap:3px;min-height:78px}
+.admin-password-note span{font-weight:800;color:#0b3d8e}
+.admin-password-note small{color:#718096;line-height:1.35}
+.user-status-form{margin:0}
+.danger-outline,.success-outline{background:#fff;border:1px solid currentColor}
+.danger-outline{color:#b33a35}
+.success-outline{color:#16815a}
+.user-status-form .btn.small{min-width:88px}
+@media(max-width:800px){.admin-form-wrap{padding:0 18px 20px}.admin-tabs{padding-left:18px;padding-right:18px}.admin-form-action{grid-column:auto}}
+</style>
+
+</body>
+</html>

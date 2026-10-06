@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SISGED - Relatórios</title>
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260917b">
+
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="app">
+
+    <!-- MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logos" aria-label="SESI e SENAI">
+                <img src="assets/img/logo-sesi.png" class="brand-logo brand-logo-sesi" alt="SESI">
+                <img src="assets/img/logo-senai.png" class="brand-logo brand-logo-senai" alt="SENAI">
+            </div>
+
+            <div class="brand-copy">
+                <small>Gestão Acadêmica</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <!-- INÍCIO -->
+            <a href="dashboard.html">
+                <span class="nav-ico">▦</span>
+                <span>Início</span>
+            </a>
+
+            <div class="nav-label">ADMINISTRAÇÃO</div>
+
+            <a href="administradores.html">
+                <span class="nav-ico">♙</span>
+                <span>Cadastro de Usuários</span>
+            </a>
+
+            <div class="nav-label">GESTÃO</div>
+
+            <!-- CADASTROS -->
+            <a href="cadastros.html">
+                <span class="nav-ico">▣</span>
+                <span>Cadastros</span>
+            </a>
+
+            <!-- MOVIMENTAÇÃO -->
+            <a href="movimentacoes.html">
+                <span class="nav-ico">↔</span>
+                <span>Movimentação</span>
+            </a>
+
+            <div class="nav-label">CONSULTAS</div>
+
+            <!-- HORÁRIOS -->
+            <a href="horarios.html">
+                <span class="nav-ico">□</span>
+                <span>Consulta de Horários</span>
+            </a>
+
+            <!-- INSTRUTORES -->
+            <a href="instrutores.html">
+                <span class="nav-ico">♙</span>
+                <span>Consulta de Instrutores</span>
+            </a>
+
+            <!-- SALAS -->
+            <a href="salas.html">
+                <span class="nav-ico">▥</span>
+                <span>Consulta de Salas</span>
+            </a>
+
+            <div class="nav-label">RELATÓRIOS</div>
+
+            <!-- RELATÓRIOS -->
+            <a href="relatorios.html" class="active">
+                <span class="nav-ico">▥</span>
+                <span>Relatórios</span>
+            </a>
+
+        </nav>
+
+        <!-- BOTÃO SAIR -->
+        <a href="index.html" class="logout">
+            <span class="nav-ico">↪</span>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+    <main class="main">
+
+        <!-- BARRA SUPERIOR (TOPBAR) -->
+        <header class="topbar">
+
+            <div class="crumb">
+                <span class="light">SGA</span>
+                <span class="light">›</span>
+                Sistema Web de Gestão Acadêmica
+            </div>
+
+            <div class="top-actions">
+
+                <input
+                    class="search-top"
+                    placeholder="⌕  Pesquisar..."
+                    aria-label="Pesquisar"
+                >
+
+                <div class="user-chip">
+
+                    <span class="avatar">
+                        AD
+                    </span>
+
+                    <div>
+                        Administrador
+
+                        <div class="role">
+                            Gestor do Sistema
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CABEÇALHO DA PÁGINA -->
+        <section class="page-head">
+
+            <div>
+                <h1>Relatórios</h1>
+                <p>Indicadores acadêmicos e operacionais</p>
+            </div>
+
+        </section>
+
+        <!-- GRID DE ATALHOS DE RELATÓRIOS -->
+        <div class="report-grid">
+
+            <a class="report-card" href="#frequencia">
+                <span>◔</span>
+                <b>Frequência de aulas</b>
+                <small>Presenças e faltas por aluno</small>
+            </a>
+
+            <a class="report-card" href="#carga">
+                <span>◷</span>
+                <b>Carga horária por instrutor</b>
+                <small>Aulas e horas ministradas</small>
+            </a>
+
+            <a class="report-card" href="#salas">
+                <span>▤</span>
+                <b>Ocupação de salas</b>
+                <small>Utilização dos ambientes</small>
+            </a>
+
+            <a class="report-card" href="#calendario">
+                <span>□</span>
+                <b>Calendário acadêmico</b>
+                <small>Eventos e datas importantes</small>
+            </a>
+
+        </div>
+
+        <!-- RELATÓRIO 1: FREQUÊNCIA DE AULAS -->
+        <section class="panel" id="frequencia">
+
+            <div class="panel-head">
+
+                <h2>Frequência de aulas</h2>
+
+                <button
+                    class="btn light"
+                    onclick="window.print()"
+                >
+                    Imprimir
+                </button>
+
+            </div>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ALUNO</th>
+                            <th>TURMA</th>
+                            <th>DISCIPLINA</th>
+                            <th>REGISTROS</th>
+                            <th>PRESENÇAS</th>
+                            <th>FALTAS</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Ana Beatriz Souzа</td>
+                            <td>DEV-2026-1</td>
+                            <td>Lógica de Programação</td>
+                            <td>20</td>
+                            <td>
+                                <span class="status green">18</span>
+                            </td>
+                            <td>2</td>
+                        </tr>
+
+                        <tr>
+                            <td>Carlos Eduardo Rocha</td>
+                            <td>DEV-2026-1</td>
+                            <td>Banco de Dados</td>
+                            <td>20</td>
+                            <td>
+                                <span class="status green">20</span>
+                            </td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Fernanda Lima</td>
+                            <td>AUT-2026-2</td>
+                            <td>Automação Industrial</td>
+                            <td>15</td>
+                            <td>
+                                <span class="status green">12</span>
+                            </td>
+                            <td>3</td>
+                        </tr>
+
+                        <tr>
+                            <td>Lucas Mendes</td>
+                            <td>AUT-2026-2</td>
+                            <td>Eletrotécnica</td>
+                            <td>15</td>
+                            <td>
+                                <span class="status green">14</span>
+                            </td>
+                            <td>1</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- RELATÓRIO 2: CARGA HORÁRIA POR INSTRUTOR -->
+        <section class="panel" id="carga">
+
+            <h2>Carga horária por instrutor</h2>
+
+            <div class="bars">
+
+                <div class="bar-row">
+
+                    <div>
+                        <b>Carlos Silva</b>
+                        <span>42,5 h</span>
+                    </div>
+
+                    <div class="bar">
+                        <i style="width: 85%;"></i>
+                    </div>
+
+                </div>
+
+                <div class="bar-row">
+
+                    <div>
+                        <b>Ana Oliveira</b>
+                        <span>38,0 h</span>
+                    </div>
+
+                    <div class="bar">
+                        <i style="width: 76%;"></i>
+                    </div>
+
+                </div>
+
+                <div class="bar-row">
+
+                    <div>
+                        <b>Roberto Santos</b>
+                        <span>25,0 h</span>
+                    </div>
+
+                    <div class="bar">
+                        <i style="width: 50%;"></i>
+                    </div>
+
+                </div>
+
+                <div class="bar-row">
+
+                    <div>
+                        <b>Juliana Costa</b>
+                        <span>18,5 h</span>
+                    </div>
+
+                    <div class="bar">
+                        <i style="width: 37%;"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RELATÓRIO 3: OCUPAÇÃO DE SALAS -->
+        <section class="panel" id="salas">
+
+            <h2>Ocupação de salas</h2>
+
+            <div class="cards-grid">
+
+                <div class="entity-card">
+                    <b>LAB-01</b>
+                    <h3>Laboratório de Informática 01</h3>
+                    <p>18 aulas agendadas</p>
+                    <small>Capacidade: 30</small>
+                </div>
+
+                <div class="entity-card">
+                    <b>SAL-102</b>
+                    <h3>Sala de Aula 102</h3>
+                    <p>14 aulas agendadas</p>
+                    <small>Capacidade: 40</small>
+                </div>
+
+                <div class="entity-card">
+                    <b>LAB-02</b>
+                    <h3>Laboratório de Automação</h3>
+                    <p>12 aulas agendadas</p>
+                    <small>Capacidade: 25</small>
+                </div>
+
+                <div class="entity-card">
+                    <b>AUD-01</b>
+                    <h3>Auditório Principal</h3>
+                    <p>5 aulas agendadas</p>
+                    <small>Capacidade: 100</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RELATÓRIO 4: CALENDÁRIO ACADÊMICO -->
+        <section class="panel" id="calendario">
+
+            <h2>Calendário acadêmico</h2>
+
+            <div class="calendar-list">
+
+                <div>
+                    <span>15/10/2026</span>
+                    <b>Início do 4º Bimestre</b>
+                    <small>Abertura oficial das disciplinas do quarto bimestre letivo.</small>
+                </div>
+
+                <div>
+                    <span>28/10/2026</span>
+                    <b>Feira de Tecnologia e Inovação</b>
+                    <small>Exposição dos projetos integradores desenvolvidos pelos alunos.</small>
+                </div>
+
+                <div>
+                    <span>15/11/2026</span>
+                    <b>Feriado - Proclamação da República</b>
+                    <small>Recesso escolar sem atividades acadêmicas presenciais.</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RODAPÉ (FOOTER + VLIBRAS) -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+
+    </main>
+</div>
+</body>
+</html>

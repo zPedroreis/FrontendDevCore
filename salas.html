@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SISGED - Consulta de Salas</title>
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260917b">
+
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="app">
+
+    <!-- MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logos" aria-label="SESI e SENAI">
+                <img src="assets/img/logo-sesi.png" class="brand-logo brand-logo-sesi" alt="SESI">
+                <img src="assets/img/logo-senai.png" class="brand-logo brand-logo-senai" alt="SENAI">
+            </div>
+
+            <div class="brand-copy">
+                <small>Gestão Acadêmica</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <!-- INÍCIO -->
+            <a href="dashboard.html">
+                <span class="nav-ico">▦</span>
+                <span>Início</span>
+            </a>
+
+            <div class="nav-label">ADMINISTRAÇÃO</div>
+
+            <a href="administradores.html">
+                <span class="nav-ico">♙</span>
+                <span>Cadastro de Usuários</span>
+            </a>
+
+            <div class="nav-label">GESTÃO</div>
+
+            <!-- CADASTROS -->
+            <a href="cadastros.html">
+                <span class="nav-ico">▣</span>
+                <span>Cadastros</span>
+            </a>
+
+            <!-- MOVIMENTAÇÃO -->
+            <a href="movimentacoes.html">
+                <span class="nav-ico">↔</span>
+                <span>Movimentação</span>
+            </a>
+
+            <div class="nav-label">CONSULTAS</div>
+
+            <!-- HORÁRIOS -->
+            <a href="horarios.html">
+                <span class="nav-ico">□</span>
+                <span>Consulta de Horários</span>
+            </a>
+
+            <!-- INSTRUTORES -->
+            <a href="instrutores.html">
+                <span class="nav-ico">♙</span>
+                <span>Consulta de Instrutores</span>
+            </a>
+
+            <!-- SALAS -->
+            <a href="salas.html" class="active">
+                <span class="nav-ico">▥</span>
+                <span>Consulta de Salas</span>
+            </a>
+
+            <div class="nav-label">RELATÓRIOS</div>
+
+            <!-- RELATÓRIOS -->
+            <a href="relatorios.html">
+                <span class="nav-ico">▥</span>
+                <span>Relatórios</span>
+            </a>
+
+        </nav>
+
+        <!-- BOTÃO SAIR -->
+        <a href="index.html" class="logout">
+            <span class="nav-ico">↪</span>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+    <main class="main">
+
+        <!-- BARRA SUPERIOR (TOPBAR) -->
+        <header class="topbar">
+
+            <div class="crumb">
+                <span class="light">SGA</span>
+                <span class="light">›</span>
+                Sistema Web de Gestão Acadêmica
+            </div>
+
+            <div class="top-actions">
+
+                <input
+                    class="search-top"
+                    placeholder="⌕  Pesquisar..."
+                    aria-label="Pesquisar"
+                >
+
+                <div class="user-chip">
+
+                    <span class="avatar">
+                        AD
+                    </span>
+
+                    <div>
+                        Administrador
+
+                        <div class="role">
+                            Gestor do Sistema
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CABEÇALHO DA PÁGINA -->
+        <section class="page-head">
+
+            <div>
+                <h1>Consulta de Salas</h1>
+                <p>Disponibilidade, capacidade e recursos</p>
+            </div>
+
+            <button
+                class="btn primary"
+                onclick="openModal('salaModal')"
+            >
+                ＋ Nova sala
+            </button>
+
+        </section>
+
+        <!-- ABAS DE FILTRO -->
+        <div class="tabs">
+            <button class="selected">Todas</button>
+            <button>Disponíveis</button>
+            <button>Ocupadas</button>
+            <button>Reservadas</button>
+        </div>
+
+        <!-- LISTA DE CARDS DE SALAS -->
+        <div class="rooms">
+
+            <article class="room-card">
+
+                <div class="room-icon">
+                    ▤
+                </div>
+
+                <div class="room-body">
+
+                    <div class="room-title">
+                        <h3>Laboratório de Informática 01</h3>
+
+                        <span class="status disponivel">
+                            Disponível
+                        </span>
+                    </div>
+
+                    <p>
+                        <b>Bloco A</b>
+                        ·
+                        Laboratório
+                        ·
+                        30 lugares
+                    </p>
+
+                    <p class="muted">
+                        Equipado com 30 computadores, projetor multimídia e ar-condicionado.
+                    </p>
+
+                    <button
+                        class="btn small"
+                        onclick='editSala({
+                            id: 1,
+                            nome: "Laboratório de Informática 01",
+                            bloco: "Bloco A",
+                            tipo: "LABORATORIO",
+                            capacidade: 30,
+                            descricao: "Equipado com 30 computadores, projetor multimídia e ar-condicionado.",
+                            status: "DISPONIVEL"
+                        })'
+                    >
+                        ✎ Editar sala
+                    </button>
+
+                </div>
+
+            </article>
+
+            <article class="room-card">
+
+                <div class="room-icon">
+                    ▤
+                </div>
+
+                <div class="room-body">
+
+                    <div class="room-title">
+                        <h3>Sala de Aula 102</h3>
+
+                        <span class="status ocupada">
+                            Ocupada
+                        </span>
+                    </div>
+
+                    <p>
+                        <b>Bloco B</b>
+                        ·
+                        Sala teórica
+                        ·
+                        40 lugares
+                    </p>
+
+                    <p class="muted">
+                        Quadro branco, projetor interativo e bancadas individuais.
+                    </p>
+
+                    <button
+                        class="btn small"
+                        onclick='editSala({
+                            id: 2,
+                            nome: "Sala de Aula 102",
+                            bloco: "Bloco B",
+                            tipo: "SALA_TEORICA",
+                            capacidade: 40,
+                            descricao: "Quadro branco, projetor interativo e bancadas individuais.",
+                            status: "OCUPADA"
+                        })'
+                    >
+                        ✎ Editar sala
+                    </button>
+
+                </div>
+
+            </article>
+
+            <article class="room-card">
+
+                <div class="room-icon">
+                    ▤
+                </div>
+
+                <div class="room-body">
+
+                    <div class="room-title">
+                        <h3>Auditório Principal</h3>
+
+                        <span class="status reservada">
+                            Reservada
+                        </span>
+                    </div>
+
+                    <p>
+                        <b>Bloco Central</b>
+                        ·
+                        Auditório
+                        ·
+                        100 lugares
+                    </p>
+
+                    <p class="muted">
+                        Sistema de som completo, projetor 4K, palco e camarim.
+                    </p>
+
+                    <button
+                        class="btn small"
+                        onclick='editSala({
+                            id: 3,
+                            nome: "Auditório Principal",
+                            bloco: "Bloco Central",
+                            tipo: "AUDITORIO",
+                            capacidade: 100,
+                            descricao: "Sistema de som completo, projetor 4K, palco e camarim.",
+                            status: "RESERVADA"
+                        })'
+                    >
+                        ✎ Editar sala
+                    </button>
+
+                </div>
+
+            </article>
+
+            <article class="room-card">
+
+                <div class="room-icon">
+                    ▤
+                </div>
+
+                <div class="room-body">
+
+                    <div class="room-title">
+                        <h3>Laboratório de Automação</h3>
+
+                        <span class="status manutencao">
+                            Manutenção
+                        </span>
+                    </div>
+
+                    <p>
+                        <b>Bloco A</b>
+                        ·
+                        Laboratório
+                        ·
+                        25 lugares
+                    </p>
+
+                    <p class="muted">
+                        Em manutenção programada nas bancadas elétricas e CLPs.
+                    </p>
+
+                    <button
+                        class="btn small"
+                        onclick='editSala({
+                            id: 4,
+                            nome: "Laboratório de Automação",
+                            bloco: "Bloco A",
+                            tipo: "LABORATORIO",
+                            capacidade: 25,
+                            descricao: "Em manutenção programada nas bancadas elétricas e CLPs.",
+                            status: "MANUTENCAO"
+                        })'
+                    >
+                        ✎ Editar sala
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <!-- MODAL — NOVA / EDITAR SALA -->
+        <div class="modal" id="salaModal">
+
+            <div class="modal-box">
+
+                <button
+                    class="modal-close"
+                    type="button"
+                    onclick="closeModal('salaModal')"
+                >
+                    ×
+                </button>
+
+                <h2 id="modalTitle">Nova/Editar Sala</h2>
+
+                <form onsubmit="event.preventDefault(); alert('Sala salva com sucesso!'); closeModal('salaModal');">
+
+                    <input
+                        type="hidden"
+                        name="id"
+                        id="sala_id"
+                        value="0"
+                    >
+
+                    <label>
+                        Nome
+                        <input
+                            name="nome"
+                            id="sala_nome"
+                            required
+                            placeholder="Ex: Laboratório de Informática 01"
+                        >
+                    </label>
+
+                    <label>
+                        Bloco
+                        <input
+                            name="bloco"
+                            id="sala_bloco"
+                            placeholder="Ex: Bloco A"
+                        >
+                    </label>
+
+                    <label>
+                        Tipo
+                        <select name="tipo" id="sala_tipo">
+                            <option value="LABORATORIO">LABORATÓRIO</option>
+                            <option value="SALA_TEORICA">SALA TEÓRICA</option>
+                            <option value="AUDITORIO">AUDITÓRIO</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Capacidade
+                        <input
+                            type="number"
+                            name="capacidade"
+                            id="sala_cap"
+                            value="30"
+                        >
+                    </label>
+
+                    <label>
+                        Descrição
+                        <textarea
+                            name="descricao"
+                            id="sala_desc"
+                            placeholder="Recursos e equipamentos disponíveis"
+                        ></textarea>
+                    </label>
+
+                    <label>
+                        Status
+                        <select name="status" id="sala_status">
+                            <option value="DISPONIVEL">DISPONÍVEL</option>
+                            <option value="OCUPADA">OCUPADA</option>
+                            <option value="RESERVADA">RESERVADA</option>
+                            <option value="MANUTENCAO">MANUTENÇÃO</option>
+                        </select>
+                    </label>
+
+                    <button class="btn primary full" type="submit">
+                        Salvar sala
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- RODAPÉ (FOOTER + VLIBRAS) -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+            // Controle de Modais
+            function openModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) modal.classList.add('active');
+            }
+
+            function closeModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) modal.classList.remove('active');
+            }
+
+            // Preenche o formulário do modal ao clicar em Editar
+            function editSala(sala) {
+                document.getElementById('sala_id').value = sala.id || 0;
+                document.getElementById('sala_nome').value = sala.nome || '';
+                document.getElementById('sala_bloco').value = sala.bloco || '';
+                document.getElementById('sala_tipo').value = sala.tipo || 'LABORATORIO';
+                document.getElementById('sala_cap').value = sala.capacidade || 30;
+                document.getElementById('sala_desc').value = sala.descricao || '';
+                document.getElementById('sala_status').value = sala.status || 'DISPONIVEL';
+                
+                document.getElementById('modalTitle').textContent = sala.id ? 'Editar Sala' : 'Nova Sala';
+                openModal('salaModal');
+            }
+        </script>
+
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SISGED - Consulta de Instrutores</title>
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260917b">
+
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="app">
+
+    <!-- MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logos" aria-label="SESI e SENAI">
+                <img src="assets/img/logo-sesi.png" class="brand-logo brand-logo-sesi" alt="SESI">
+                <img src="assets/img/logo-senai.png" class="brand-logo brand-logo-senai" alt="SENAI">
+            </div>
+
+            <div class="brand-copy">
+                <small>Gestão Acadêmica</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <!-- INÍCIO -->
+            <a href="dashboard.html">
+                <span class="nav-ico">▦</span>
+                <span>Início</span>
+            </a>
+
+            <div class="nav-label">ADMINISTRAÇÃO</div>
+
+            <a href="administradores.html">
+                <span class="nav-ico">♙</span>
+                <span>Cadastro de Usuários</span>
+            </a>
+
+            <div class="nav-label">GESTÃO</div>
+
+            <!-- CADASTROS -->
+            <a href="cadastros.html">
+                <span class="nav-ico">▣</span>
+                <span>Cadastros</span>
+            </a>
+
+            <!-- MOVIMENTAÇÃO -->
+            <a href="movimentacoes.html">
+                <span class="nav-ico">↔</span>
+                <span>Movimentação</span>
+            </a>
+
+            <div class="nav-label">CONSULTAS</div>
+
+            <!-- HORÁRIOS -->
+            <a href="horarios.html">
+                <span class="nav-ico">□</span>
+                <span>Consulta de Horários</span>
+            </a>
+
+            <!-- INSTRUTORES -->
+            <a href="instrutores.html" class="active">
+                <span class="nav-ico">♙</span>
+                <span>Consulta de Instrutores</span>
+            </a>
+
+            <!-- SALAS -->
+            <a href="salas.html">
+                <span class="nav-ico">▥</span>
+                <span>Consulta de Salas</span>
+            </a>
+
+            <div class="nav-label">RELATÓRIOS</div>
+
+            <!-- RELATÓRIOS -->
+            <a href="relatorios.html">
+                <span class="nav-ico">▥</span>
+                <span>Relatórios</span>
+            </a>
+
+        </nav>
+
+        <!-- BOTÃO SAIR -->
+        <a href="index.html" class="logout">
+            <span class="nav-ico">↪</span>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+    <main class="main">
+
+        <!-- BARRA SUPERIOR (TOPBAR) -->
+        <header class="topbar">
+
+            <div class="crumb">
+                <span class="light">SGA</span>
+                <span class="light">›</span>
+                Sistema Web de Gestão Acadêmica
+            </div>
+
+            <div class="top-actions">
+
+                <input
+                    class="search-top"
+                    placeholder="⌕  Pesquisar..."
+                    aria-label="Pesquisar"
+                >
+
+                <div class="user-chip">
+
+                    <span class="avatar">
+                        AD
+                    </span>
+
+                    <div>
+                        Administrador
+
+                        <div class="role">
+                            Gestor do Sistema
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CABEÇALHO DA PÁGINA -->
+        <section class="page-head">
+            <div>
+                <h1>Consulta de Instrutores</h1>
+                <p>Equipe docente e carga de aulas</p>
+            </div>
+        </section>
+
+        <!-- PAINEL DE CONTEÚDO -->
+        <div class="panel">
+
+            <div class="toolbar">
+                <input
+                    id="searchInst"
+                    placeholder="⌕ Pesquisar instrutor..."
+                    oninput="filterCards('searchInst','.inst-row')"
+                >
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>INSTRUTOR</th>
+                            <th>CPF</th>
+                            <th>ÁREA</th>
+                            <th>AULAS</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="inst-row">
+                            <td>
+                                <div class="person">
+                                    <span class="person-avatar">C</span>
+                                    <b>Carlos Silva</b>
+                                </div>
+                            </td>
+                            <td>123.456.789-00</td>
+                            <td>Tecnologia da Informação</td>
+                            <td>18</td>
+                            <td><span class="status green">Ativo</span></td>
+                            <td>
+                                <button
+                                    class="btn small"
+                                    type="button"
+                                    onclick="alert('Status do instrutor alterado com sucesso!')"
+                                >
+                                    Desativar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr class="inst-row">
+                            <td>
+                                <div class="person">
+                                    <span class="person-avatar">A</span>
+                                    <b>Ana Oliveira</b>
+                                </div>
+                            </td>
+                            <td>987.654.321-11</td>
+                            <td>Desenvolvimento Web</td>
+                            <td>24</td>
+                            <td><span class="status green">Ativo</span></td>
+                            <td>
+                                <button
+                                    class="btn small"
+                                    type="button"
+                                    onclick="alert('Status do instrutor alterado com sucesso!')"
+                                >
+                                    Desativar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr class="inst-row">
+                            <td>
+                                <div class="person">
+                                    <span class="person-avatar">R</span>
+                                    <b>Roberto Santos</b>
+                                </div>
+                            </td>
+                            <td>456.789.123-22</td>
+                            <td>Automação Industrial</td>
+                            <td>12</td>
+                            <td><span class="status green">Ativo</span></td>
+                            <td>
+                                <button
+                                    class="btn small"
+                                    type="button"
+                                    onclick="alert('Status do instrutor alterado com sucesso!')"
+                                >
+                                    Desativar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr class="inst-row">
+                            <td>
+                                <div class="person">
+                                    <span class="person-avatar">J</span>
+                                    <b>Juliana Costa</b>
+                                </div>
+                            </td>
+                            <td>321.654.987-33</td>
+                            <td>Eletrotécnica</td>
+                            <td>0</td>
+                            <td><span class="status danger">Inativo</span></td>
+                            <td>
+                                <button
+                                    class="btn small"
+                                    type="button"
+                                    onclick="alert('Status do instrutor alterado com sucesso!')"
+                                >
+                                    Ativar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- RODAPÉ (FOOTER + VLIBRAS) -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SISGED - Cadastros</title>
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260917b">
+
+    <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<div class="app">
+
+    <!-- MENU LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logos" aria-label="SESI e SENAI">
+                <img src="assets/img/logo-sesi.png" class="brand-logo brand-logo-sesi" alt="SESI">
+                <img src="assets/img/logo-senai.png" class="brand-logo brand-logo-senai" alt="SENAI">
+            </div>
+
+            <div class="brand-copy">
+                <small>Gestão Acadêmica</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <!-- INÍCIO -->
+            <a href="dashboard.html">
+                <span class="nav-ico">▦</span>
+                <span>Início</span>
+            </a>
+
+            <div class="nav-label">ADMINISTRAÇÃO</div>
+
+            <a href="administradores.html">
+                <span class="nav-ico">♙</span>
+                <span>Cadastro de Usuários</span>
+            </a>
+
+            <div class="nav-label">GESTÃO</div>
+
+            <!-- CADASTROS -->
+            <a href="cadastros.html" class="active">
+                <span class="nav-ico">▣</span>
+                <span>Cadastros</span>
+            </a>
+
+            <!-- MOVIMENTAÇÃO -->
+            <a href="movimentacoes.html">
+                <span class="nav-ico">↔</span>
+                <span>Movimentação</span>
+            </a>
+
+            <div class="nav-label">CONSULTAS</div>
+
+            <!-- HORÁRIOS -->
+            <a href="horarios.html">
+                <span class="nav-ico">□</span>
+                <span>Consulta de Horários</span>
+            </a>
+
+            <!-- INSTRUTORES -->
+            <a href="instrutores.html">
+                <span class="nav-ico">♙</span>
+                <span>Consulta de Instrutores</span>
+            </a>
+
+            <!-- SALAS -->
+            <a href="salas.html">
+                <span class="nav-ico">▥</span>
+                <span>Consulta de Salas</span>
+            </a>
+
+            <div class="nav-label">RELATÓRIOS</div>
+
+            <!-- RELATÓRIOS -->
+            <a href="relatorios.html">
+                <span class="nav-ico">▥</span>
+                <span>Relatórios</span>
+            </a>
+
+        </nav>
+
+        <!-- BOTÃO SAIR -->
+        <a href="index.html" class="logout">
+            <span class="nav-ico">↪</span>
+            <span>Sair</span>
+        </a>
+
+    </aside>
+
+    <main class="main">
+
+        <!-- BARRA SUPERIOR (TOPBAR) -->
+        <header class="topbar">
+
+            <div class="crumb">
+                <span class="light">SGA</span>
+                <span class="light">›</span>
+                Sistema Web de Gestão Acadêmica
+            </div>
+
+            <div class="top-actions">
+
+                <input
+                    class="search-top"
+                    placeholder="⌕  Pesquisar..."
+                    aria-label="Pesquisar"
+                >
+
+                <div class="user-chip">
+
+                    <span class="avatar">
+                        AD
+                    </span>
+
+                    <div>
+                        Administrador
+
+                        <div class="role">
+                            Gestor do Sistema
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CONTEÚDO DA PÁGINA -->
+        <section class="page-head">
+            <div>
+                <h1>Cadastros</h1>
+                <p>Turmas, cursos, disciplinas e instrutores</p>
+            </div>
+        </section>
+
+        <!-- ABAS DE NAVEGAÇÃO -->
+        <div class="tabs">
+            <a class="selected" href="#turmas">Turmas</a>
+            <a href="#cursos">Cursos</a>
+            <a href="#disciplinas">Disciplinas</a>
+            <a href="instrutores.html">Instrutores</a>
+        </div>
+
+        <!-- PAINEL DE TURMAS -->
+        <div class="panel" id="turmas">
+            <div class="panel-head">
+                <h2>Turmas</h2>
+                <button class="btn primary" onclick="openModal('turmaModal')">＋ Nova turma</button>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CÓDIGO</th>
+                            <th>CURSO</th>
+                            <th>PERÍODO</th>
+                            <th>INÍCIO</th>
+                            <th>FIM</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>DEV-2026-1</b></td>
+                            <td>Técnico em Desenvolvimento de Sistemas</td>
+                            <td>Manhã</td>
+                            <td>01/02/2026</td>
+                            <td>15/12/2026</td>
+                            <td><span class="status green">ATIVA</span></td>
+                            <td>
+                                <button class="icon" type="button" onclick="openModal('turmaModal')">✎</button>
+                                <button class="icon danger-text" type="button" onclick="if(confirm('Excluir turma?')) alert('Turma excluída com sucesso!');">⌫</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>AUT-2026-2</b></td>
+                            <td>Técnico em Automação Industrial</td>
+                            <td>Noite</td>
+                            <td>10/02/2026</td>
+                            <td>20/12/2026</td>
+                            <td><span class="status green">ATIVA</span></td>
+                            <td>
+                                <button class="icon" type="button" onclick="openModal('turmaModal')">✎</button>
+                                <button class="icon danger-text" type="button" onclick="if(confirm('Excluir turma?')) alert('Turma excluída com sucesso!');">⌫</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- PAINEL DE CURSOS -->
+        <div class="panel" id="cursos" style="margin-top:24px">
+            <div class="panel-head">
+                <h2>Cursos</h2>
+                <button class="btn primary" onclick="openModal('cursoModal')">＋ Novo curso</button>
+            </div>
+            <div class="cards-grid">
+                <div class="entity-card">
+                    <b>DES-SYS</b>
+                    <h3>Técnico em Desenvolvimento de Sistemas</h3>
+                    <p>Formação em desenvolvimento de softwares web, mobile e banco de dados.</p>
+                    <small>1200 horas</small>
+                    <div class="card-actions">
+                        <button class="icon" type="button" onclick="openModal('cursoModal')">✎</button>
+                        <button class="icon danger-text" type="button" onclick="if(confirm('Excluir curso?')) alert('Curso excluído com sucesso!');">⌫</button>
+                    </div>
+                </div>
+                <div class="entity-card">
+                    <b>AUT-IND</b>
+                    <h3>Técnico em Automação Industrial</h3>
+                    <p>Aprenda sobre controladores lógicos, redes industriais e robótica.</p>
+                    <small>1200 horas</small>
+                    <div class="card-actions">
+                        <button class="icon" type="button" onclick="openModal('cursoModal')">✎</button>
+                        <button class="icon danger-text" type="button" onclick="if(confirm('Excluir curso?')) alert('Curso excluído com sucesso!');">⌫</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAINEL DE DISCIPLINAS -->
+        <div class="panel" id="disciplinas" style="margin-top:24px">
+            <div class="panel-head">
+                <h2>Disciplinas</h2>
+                <button class="btn primary" onclick="openModal('disciplinaModal')">＋ Nova disciplina</button>
+            </div>
+            <div class="cards-grid">
+                <div class="entity-card">
+                    <b>BD-01</b>
+                    <h3>Banco de Dados</h3>
+                    <p>Conceitos de modelagem relacional, SQL e manipulação de dados.</p>
+                    <small>80 horas</small>
+                    <div class="card-actions">
+                        <button class="icon" type="button" onclick="openModal('disciplinaModal')">✎</button>
+                        <button class="icon danger-text" type="button" onclick="if(confirm('Excluir disciplina?')) alert('Disciplina excluída com sucesso!');">⌫</button>
+                    </div>
+                </div>
+                <div class="entity-card">
+                    <b>WEB-01</b>
+                    <h3>Programação Web</h3>
+                    <p>Desenvolvimento front-end e back-end com tecnologias modernas.</p>
+                    <small>120 horas</small>
+                    <div class="card-actions">
+                        <button class="icon" type="button" onclick="openModal('disciplinaModal')">✎</button>
+                        <button class="icon danger-text" type="button" onclick="if(confirm('Excluir disciplina?')) alert('Disciplina excluída com sucesso!');">⌫</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL TURMA -->
+        <div class="modal" id="turmaModal">
+            <div class="modal-box">
+                <button class="modal-close" onclick="closeModal('turmaModal')">×</button>
+                <h2 id="turmaTitle">Nova Turma</h2>
+                <form onsubmit="event.preventDefault(); alert('Turma salva com sucesso!'); closeModal('turmaModal');">
+                    <input type="hidden" name="id" id="turma_id">
+                    <div class="form-grid">
+                        <label>Código<input name="codigo" id="turma_codigo" required></label>
+                        <label>Nome<input name="nome" id="turma_nome" required></label>
+                        <label>Curso
+                            <select name="curso_id" id="turma_curso" required>
+                                <option value="1">Técnico em Desenvolvimento de Sistemas</option>
+                                <option value="2">Técnico em Automação Industrial</option>
+                            </select>
+                        </label>
+                        <label>Período
+                            <select name="periodo" id="turma_periodo">
+                                <option>MANHA</option>
+                                <option>TARDE</option>
+                                <option>NOITE</option>
+                            </select>
+                        </label>
+                        <label>Data inicial<input type="date" name="data_inicio" id="turma_inicio" required></label>
+                        <label>Data final<input type="date" name="data_fim" id="turma_fim"></label>
+                        <label>Capacidade<input type="number" name="capacidade" id="turma_cap" value="30"></label>
+                        <label>Status
+                            <select name="status" id="turma_status">
+                                <option>ATIVA</option>
+                                <option>ENCERRADA</option>
+                                <option>CANCELADA</option>
+                            </select>
+                        </label>
+                    </div>
+                    <button class="btn primary full" type="submit">Salvar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- MODAL CURSO -->
+        <div class="modal" id="cursoModal">
+            <div class="modal-box">
+                <button class="modal-close" onclick="closeModal('cursoModal')">×</button>
+                <h2>Curso</h2>
+                <form onsubmit="event.preventDefault(); alert('Curso salvo com sucesso!'); closeModal('cursoModal');">
+                    <input type="hidden" name="id" id="curso_id">
+                    <label>Código<input name="codigo" id="curso_codigo" required></label>
+                    <label>Nome<input name="nome" id="curso_nome" required></label>
+                    <label>Descrição<textarea name="descricao" id="curso_desc"></textarea></label>
+                    <label>Carga horária<input type="number" name="carga_horaria" id="curso_carga"></label>
+                    <button class="btn primary full" type="submit">Salvar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- MODAL DISCIPLINA -->
+        <div class="modal" id="disciplinaModal">
+            <div class="modal-box">
+                <button class="modal-close" onclick="closeModal('disciplinaModal')">×</button>
+                <h2>Disciplina</h2>
+                <form onsubmit="event.preventDefault(); alert('Disciplina salva com sucesso!'); closeModal('disciplinaModal');">
+                    <input type="hidden" name="id" id="disciplina_id">
+                    <label>Código<input name="codigo" id="disciplina_codigo" required></label>
+                    <label>Nome<input name="nome" id="disciplina_nome" required></label>
+                    <label>Descrição<textarea name="descricao" id="disciplina_desc"></textarea></label>
+                    <label>Carga horária<input type="number" name="carga_horaria" id="disciplina_carga"></label>
+                    <button class="btn primary full" type="submit">Salvar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- RODAPÉ (FOOTER + VLIBRAS) -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+            // Funções auxiliares para controlo de modais caso não estejam no app.js
+            function openModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) modal.classList.add('active');
+            }
+            function closeModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) modal.classList.remove('active');
+            }
+        </script>
+
+    </main>
+</div>
+</body>
+</html>
